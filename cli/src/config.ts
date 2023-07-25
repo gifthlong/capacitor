@@ -99,11 +99,11 @@ async function loadExtConfigTS(
     if (!tsPath) {
       fatal(
         'Could not find installation of TypeScript.\n' +
-          `To use ${c.strong(
-            extConfigName,
-          )} files, you must install TypeScript in your project, e.g. w/ ${c.input(
-            'npm install -D typescript',
-          )}`,
+        `To use ${c.strong(
+          extConfigName,
+        )} files, you must install TypeScript in your project, e.g. w/ ${c.input(
+          'npm install -D typescript',
+        )}`,
       );
     }
 
@@ -240,6 +240,8 @@ async function loadAndroidConfig(
     keystorePath: extConfig.android?.buildOptions?.keystorePath,
     keystorePassword: extConfig.android?.buildOptions?.keystorePassword,
     releaseType: extConfig.android?.buildOptions?.releaseType,
+    keystoreAlias: extConfig.android?.buildOptions?.keystoreAlias,
+    keystoreAliasPassword: extConfig.android?.buildOptions?.keystoreAliasPassword,
   };
 
   return {
@@ -377,11 +379,11 @@ async function determineIOSWebDirAbs(
         `Using the iOS project root for the ${c.strong(
           'public',
         )} directory is deprecated.\n` +
-          `Please follow the Upgrade Guide to move ${c.strong(
-            'public',
-          )} inside the iOS target directory: ${c.strong(
-            'https://capacitorjs.com/docs/updating/3-0#move-public-into-the-ios-target-directory',
-          )}`,
+        `Please follow the Upgrade Guide to move ${c.strong(
+          'public',
+        )} inside the iOS target directory: ${c.strong(
+          'https://capacitorjs.com/docs/updating/3-0#move-public-into-the-ios-target-directory',
+        )}`,
       );
 
       return resolve(nativeProjectDirAbs, 'public');
